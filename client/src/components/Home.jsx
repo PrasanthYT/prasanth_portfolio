@@ -113,7 +113,7 @@ function Home() {
     <div className="home-component-mobile-menu">
       <div className="home-component-mobile-menu-with-background">
         <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}>
-          <div className="mobile-men-items-name-and-close-button">
+          <div className="mobile-men-items-name-and-close-button" onClick={WebsiteOpener}>
             <p>prasanth-j</p>
             <div className="space-eveny-area-helper"></div>
             {isMobileMenuOpen && (
@@ -195,13 +195,17 @@ function Home() {
     window.open("https://www.instagram.com/rj_prasanthu/", "_blank")
   }
 
+  const WebsiteOpener = () => {
+    window.location.reload();
+  }
+
   return (
     <>
       {isMobileMenuOpen && <MobileMenu />}
       <div className="home-component-content-area">
         <div className="home-component-main-code-editor">
           <div className="home-component-code-editor-navbar">
-            <div className="code-editor-navbar-name-area">
+            <div className="code-editor-navbar-name-area" onClick={WebsiteOpener}>
               <p>prasanth-j</p>
             </div>
             <div
