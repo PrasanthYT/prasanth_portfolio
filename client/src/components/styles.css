@@ -714,7 +714,7 @@
 }
 
 .code-editor-content-area-snippts {
-  width: 22vw;
+  width: 25vw;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -722,9 +722,9 @@
 }
 
 .code-editor-news-area {
-  width: 15vw;
+  width: 25vw;
   background-color: #011221;
-  height: 20vh;
+  height: 25vh;
   border: 1px solid #1e2d3d;
   border-radius: 10px;
   color: var(--font-color);
@@ -733,6 +733,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.thirukural{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .code-editor-right-side-progress-bar {
@@ -902,6 +912,14 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+.flutter-logo-plus-name img{
+  width: 20px;
+}
+
+.fliter-content-angular-box img{
+  width: 20px;
 }
 
 .project-component-showcase-area {
@@ -1546,6 +1564,10 @@ form{
   cursor: pointer;
 }
 
+.tech-badges{
+  margin-left: 10px;
+}
+
 @media (max-width: 1024px) {
   .code-editor-navbar-announcement-area {
     width: 20vw;
@@ -1593,7 +1615,7 @@ form{
     width: 1vw;
   }
   .code-editor-news-area {
-    width: 20vw;
+    width: 27vw;
   }
   .code-editor-content-area-snippts {
     width: 25vw;
