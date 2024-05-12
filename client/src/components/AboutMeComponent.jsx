@@ -16,6 +16,7 @@ import Phone from "../assets/Icons/phone-fill.svg";
 function AboutMeComponent() {
   const fileContents = {
     "personal-info": `/*
+
 I'm Prasanth, a student with a strong desire to contribute to upcoming
 technologies and open-source projects.
 
@@ -34,6 +35,7 @@ I'm passionate about using my education and experience to empower the
 next generation, bridging the gap between rural and urban educational
 opportunities. By doing so, I hope to leave a lasting impact on the 
 tech community and those I have the privilege to work with.
+
 */`,
     interests: `/*
 My interests extend beyond computer science and education, reaching
