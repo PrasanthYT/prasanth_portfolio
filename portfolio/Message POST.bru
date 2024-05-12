@@ -1,0 +1,20 @@
+meta {
+  name: Message POST
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/messages
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name" : "Bruno",
+    "email" : "bruno@bruno.com",
+    "message" : "Just a API Testing",
+    "date" : "Sat, May 11"
+  }
+}

@@ -7,32 +7,35 @@ import ReactLogo from "../assets/Icons/react.svg";
 import VueLogo from "../assets/Icons/vue.svg";
 import HTMLLogo from "../assets/Icons/html.svg";
 import CSSLogo from "../assets/Icons/css.svg";
-import GatsbyLogo from "../assets/Icons/gatsby.svg";
-import FlutterLogo from "../assets/Icons/flutter.svg";
-import AngularLogo from "../assets/Icons/angular.svg";
+import ElectronLogo from "../assets/Icons/electron.svg";
+import NodeLogo from "../assets/Icons/nodejs.svg";
+import NPMLogo from "../assets/Icons/npmjs.svg";
 
 //Badges
 import ReactBadge from "../assets/Badges/react.svg";
 import VueBadge from "../assets/Badges/vue.svg";
-import GatsbyBadge from "../assets/Badges/gatsby.svg";
+import ElectronBadge from "../assets/Badges/electron.svg";
 import HTMLBadge from "../assets/Badges/html.svg";
 import CSSBadge from "../assets/Badges/css.svg";
-import FlutterBadge from "../assets/Badges/flutter.svg";
-import AngularBadge from "../assets/Badges/angular.svg";
+import NodeBadge from "../assets/Badges/node.svg";
+import NPMBadge from "../assets/Badges/npm.svg";
 
 //Backgrounds
-import Background from "../assets/Background.svg";
-import BackgroundTwo from "../assets/Background-Snake.svg";
+import Keyboo from "../assets/Projects/Key_boo.png";
+import PodkastAudioPlayer from "../assets/Projects/Podkast_audio_player.png";
+import Web2soft from "../assets/Projects/Web_2_Soft.png";
+import GBooks from "../assets/Projects/G_Books.png"
+import DailyMeals from "../assets/Projects/Daily_Meals.png"
 
 function ProjectsComponent() {
   const [selectedTechnologies, setSelectedTechnologies] = useState({
     React: true,
-    Vue: true,
+    Vue: false,
     HTML: false,
     CSS: false,
-    Gatsby: false,
-    Flutter: false,
-    Angular: false,
+    Electron: false,
+    NPM: false,
+    Node: false,
   });
   const [showAllProjects, setShowAllProjects] = useState(true);
 
@@ -43,31 +46,53 @@ function ProjectsComponent() {
   const projects = [
     {
       name: "Project-1",
-      tech: "React",
-      badge: ReactBadge,
-      description: "This a demo project for UI design",
-      background: Background
+      tech: ["CSS", "HTML"],
+      badges: [HTMLBadge, CSSBadge],
+      description:
+        "Test your typing skills and reaction time with this engaging Typing Challenge game.",
+      background: Keyboo,
+      url: "https://github.com/PrasanthYT/key-boo",
+      miniTag: "_key-boo",
     },
     {
       name: "Project-2",
-      tech: "React",
-      badge: ReactBadge,
-      description: "This a demo project for UI design",
-      background: BackgroundTwo
+      tech: ["Node", "NPM", "React", "HTML", "CSS"],
+      badges: [NodeBadge, NPMBadge, ReactBadge, HTMLBadge, CSSBadge],
+      description:
+        "PodKast Audio Player is a customizable React component for playing audio files with a user-friendly interface.",
+      background: PodkastAudioPlayer,
+      url: "https://podkast.netlify.app/",
+      miniTag: "_audio-player",
     },
     {
       name: "Project-3",
-      tech: "Vue",
-      badge: VueBadge,
-      description: "This a demo project for UI design",
-      background: Background
+      tech: ["Node", "Electron", "HTML", "CSS"],
+      badges: [ElectronBadge, NodeBadge, HTMLBadge, CSSBadge],
+      description:
+        "Web2Soft converts your website to a native desktop application based on the Electron framework.",
+      background: Web2soft,
+      url: "https://prasanth-1.gitbook.io/web2soft-docs",
+      miniTag: "_web2soft",
     },
     {
-      name: "Project-3",
-      tech: "CSS",
-      badge: CSSBadge,
-      description: "This a demo project for UI design",
-      background: BackgroundTwo
+      name: "Project-4",
+      tech: ["React", "HTML", "CSS"],
+      badges: [ReactBadge, CSSBadge, HTMLBadge],
+      description:
+        "Welcome to the Book Search Application! This application allows users to search for books and view details about them.",
+      background: GBooks,
+      url: "https://g-books.netlify.app/",
+      miniTag: "_g-books",
+    },
+    {
+      name: "Project-5",
+      tech: ["HTML", "CSS"],
+      badges: [CSSBadge, HTMLBadge],
+      description:
+        "Welcome to the Daily Meals! This project aims to provide users with a convenient platform for meal planning, and culinary inspiration.",
+      background: DailyMeals,
+      url: "https://prasanthj2023.github.io/daily_meals/",
+      miniTag: "_daily-meals",
     },
   ];
 
@@ -76,11 +101,11 @@ function ProjectsComponent() {
       ...selectedTechnologies,
       [technology]: !selectedTechnologies[technology],
     });
-    setShowAllProjects(true)
+    setShowAllProjects(true);
   };
 
-  const filteredProjects = projects.filter(
-    (project) => selectedTechnologies[project.tech]
+  const filteredProjects = projects.filter((project) =>
+    project.tech.some((tech) => selectedTechnologies[tech])
   );
 
   const displayedProjects = Object.values(selectedTechnologies).every(
@@ -126,7 +151,7 @@ function ProjectsComponent() {
                 </div>
                 <div className="vue-logo-plus-name">
                   <img src={VueLogo} alt="" />
-                  <p>Vue</p>
+                  <p>Node JS</p>
                 </div>
               </div>
               <div
@@ -170,38 +195,38 @@ function ProjectsComponent() {
                   />
                 </div>
                 <div className="gatsby-logo-plus-name">
-                  <img src={GatsbyLogo} alt="" />
-                  <p>Gatsby</p>
+                  <img src={ElectronLogo} alt="" />
+                  <p>Electron</p>
                 </div>
               </div>
               <div
                 className="fliter-content-angular-box"
-                onClick={() => toggleTechnology("Angular")}
+                onClick={() => toggleTechnology("NPM")}
               >
                 <div className="checkbox-img">
                   <img
-                    src={selectedTechnologies["Angular"] ? Check : UnCheck}
+                    src={selectedTechnologies["NPM"] ? Check : UnCheck}
                     alt=""
                   />
                 </div>
                 <div className="angular-logo-plus-name">
-                  <img src={AngularLogo} alt="" />
-                  <p>Angular</p>
+                  <img src={NPMLogo} alt="" />
+                  <p>NPM</p>
                 </div>
               </div>
               <div
                 className="fliter-content-flutter-box"
-                onClick={() => toggleTechnology("Flutter")}
+                onClick={() => toggleTechnology("Node")}
               >
                 <div className="checkbox-img">
                   <img
-                    src={selectedTechnologies["Flutter"] ? Check : UnCheck}
+                    src={selectedTechnologies["Node"] ? Check : UnCheck}
                     alt=""
                   />
                 </div>
                 <div className="flutter-logo-plus-name">
-                  <img src={FlutterLogo} alt="" />
-                  <p>Flutter</p>
+                  <img src={NodeLogo} alt="" />
+                  <p>Node JS</p>
                 </div>
               </div>
             </div>
@@ -226,15 +251,33 @@ function ProjectsComponent() {
                   <div className="project-showcase-area-one" key={index}>
                     <div className="project-heading">
                       <p className="color-heading">{project.name}</p>
-                      <p>{"//"} _ui-animation</p>
+                      <p>
+                        {"//"} {project.miniTag}
+                      </p>
                     </div>
                     <div className="project-content">
-                      <div className="project-thubnail" style={{ backgroundImage: `url(${project.background})` }}>
-                        <img src={project.badge} alt="badge" />
+                      <div
+                        className="project-thubnail"
+                        style={{
+                          backgroundImage: `url(${project.background})`,
+                        }}
+                      >
+                        {project.badges?.map((badge, index) => (
+                          <img
+                            className="tech-badges"
+                            key={index}
+                            src={badge}
+                            alt="badge"
+                          />
+                        ))}
                       </div>
                       <div className="project-description">
                         <p>{project.description}</p>
-                        <button>View Project</button>
+                        <button
+                          onClick={() => window.open(project.url, "_blank")}
+                        >
+                          View Project
+                        </button>
                       </div>
                     </div>
                   </div>
