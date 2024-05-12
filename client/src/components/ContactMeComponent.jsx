@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
 import Email from "../assets/Icons/mail-fill.svg";
@@ -26,15 +27,22 @@ function ContactMeComponent() {
     return currentDate.toLocaleDateString("en-US", options);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if form is valid before submitting
     if (!validateForm()) {
       return;
     }
-    setSubmitted(true);
-    // Submit form logic here
-    toast.success("Form submitted successfully!");
+    try {
+      // Send form data to the backend API
+      await axios.post("http://localhost:3000/api/messages", formData);
+      setSubmitted(true);
+      toast.success("Message sent successfully!");
+    } catch (error) {
+      // Handle error
+      console.error("Error:", error);
+      toast.error("Failed to send message. Please try again later.");
+    }
   };
 
   const validateEmail = (email) => {
@@ -224,7 +232,7 @@ function ContactMeComponent() {
                     {"("} <span className="value">'click'</span> {","} {"()"}{" "}
                     <span className="symbol">={">"}</span> {"{"} <br />
                     <span className="variable">form.send(message)</span>;<br />
-                    {"}"})
+                    {"}"}{")"}
                   </code>
                 </pre>
               </div>
